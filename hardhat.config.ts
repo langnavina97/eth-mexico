@@ -99,10 +99,7 @@ const config: HardhatUserConfig = {
       // chainId: chainIds["MaticTestnet"],
       chainId: 80001,
       allowUnlimitedContractSize: true,
-      url:
-        "https://speedy-nodes-nyc.moralis.io/" +
-        infuraApiKey +
-        "/polygon/mumbai",
+      url: "https://holy-hidden-wind.matic-testnet.discover.quiknode.pro/",
     },
     MaticMainnet: {
       accounts: {

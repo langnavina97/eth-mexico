@@ -25,6 +25,8 @@
     "@aave/lens-protocol": "^1.0.2",
     "@apollo/client": "^3.6.9",
     "@ethersproject/contracts": "^5.7.0",
+    "@gnosis.pm/safe-core-sdk": "^2.3.2",
+    "@gnosis.pm/safe-ethers-lib": "^1.4.0",
     "@gnosis.pm/zodiac": "^1.1.4",
     "@nomiclabs/hardhat-ethers": "^2.1.1",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
