@@ -1,0 +1,36 @@
+{
+  "name": "eth-mexico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/langnavina97/eth-mexico.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/langnavina97/eth-mexico/issues"
+  },
+  "homepage": "https://github.com/langnavina97/eth-mexico#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "hardhat": "^2.10.2",
+    "typechain": "^8.1.0"
+  },
+  "dependencies": {
+    "@aave/lens-protocol": "^1.0.2",
+    "@apollo/client": "^3.6.9",
+    "@ethersproject/contracts": "^5.7.0",
+    "@gnosis.pm/zodiac": "^1.1.4",
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@openzeppelin/contracts": "^4.7.3",
+    "chai": "^4.3.6",
+    "chai-bignumber": "^3.0.0",
+    "dotenv": "^16.0.1"
+  }
+}
