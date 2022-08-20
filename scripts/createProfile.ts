@@ -36,7 +36,7 @@ async function main() {
     "0x69a65b4ff261efEc4B76bcb40466872bdd7e93C1"
   );
 
-  const handle = "va5z8999008u68sze";
+  const handle = "va5z8949008u68sze";
 
   const MOCK_PROFILE_URI =
     "https://ipfs.io/ipfs/Qme7ss3ARVgxv6rXqVPiikMJ8u2NLgmgszg13pYrDKEoiu";
@@ -44,7 +44,7 @@ async function main() {
     "https://ipfs.fleek.co/ipfs/ghostplantghostplantghostplantghostplantghostplantghostplan";
 
   await profileManager.createNewProfile({
-    to: owner.address,
+    to: "0x7De17d04eA11d53AEEF48054a9841E1EEc9ecD82",
     handle: handle,
     imageURI: MOCK_PROFILE_URI,
     followModule: "0x0000000000000000000000000000000000000000",

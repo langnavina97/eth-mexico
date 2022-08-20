@@ -3,7 +3,7 @@
 //
 // When running the script with `hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
-import { run, ethers, upgrades } from "hardhat";
+import { run, ethers } from "hardhat";
 import { TokenMetadata } from "../typechain";
 import { chainIdToAddresses } from "./networkVariables";
 // let fs = require("fs");
