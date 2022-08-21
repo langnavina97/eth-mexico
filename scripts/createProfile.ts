@@ -5,7 +5,7 @@
 // Runtime Environment's members available in the global scope.
 import { run, ethers } from "hardhat";
 import { chainIdToAddresses } from "./networkVariables";
-import { ProfileManager } from "../typechain-types";
+import { ProfileCreator } from "../typechain-types";
 // let fs = require("fs");
 const ETHERSCAN_TX_URL = "https://testnet.bscscan.io/tx/";
 
@@ -31,8 +31,8 @@ async function main() {
 
   console.log("--------------- Create New Profile ---------------");
 
-  const ProfileManager = await ethers.getContractFactory("ProfileManager");
-  const profileManager = await ProfileManager.attach(
+  const ProfileCreator = await ethers.getContractFactory("ProfileCreator");
+  const profileCreator = await ProfileCreator.attach(
     "0x69a65b4ff261efEc4B76bcb40466872bdd7e93C1"
   );
 
@@ -43,7 +43,7 @@ async function main() {
   const MOCK_FOLLOW_NFT_URI =
     "https://ipfs.fleek.co/ipfs/ghostplantghostplantghostplantghostplantghostplantghostplan";
 
-  await profileManager.createNewProfile({
+  await profileCreator.createNewProfile({
     to: "0x7De17d04eA11d53AEEF48054a9841E1EEc9ecD82",
     handle: handle,
     imageURI: MOCK_PROFILE_URI,

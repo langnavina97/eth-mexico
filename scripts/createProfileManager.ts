@@ -5,7 +5,7 @@
 // Runtime Environment's members available in the global scope.
 import { run, ethers } from "hardhat";
 import { chainIdToAddresses } from "./networkVariables";
-import { ProfileManager } from "../typechain-types";
+import { ProfileCreator } from "../typechain-types";
 // let fs = require("fs");
 const ETHERSCAN_TX_URL = "https://testnet.bscscan.io/tx/";
 
@@ -31,22 +31,22 @@ async function main() {
 
   console.log("--------------- Contract Deployment Started ---------------");
 
-  const ProfileManager = await ethers.getContractFactory("ProfileManager");
-  const profileManager = await ProfileManager.deploy();
-  await profileManager.deployed();
+  const ProfileCreator = await ethers.getContractFactory("ProfileCreator");
+  const profileCreator = await ProfileCreator.deploy();
+  await profileCreator.deployed();
 
   console.log("--------------- Create New Profile ---------------");
 
   const handle = "va5z8999008u67sze";
 
-  console.log("ProfileManager deployed to:", profileManager.address);
+  console.log("ProfileCreator deployed to:", profileCreator.address);
 
   const MOCK_PROFILE_URI =
     "https://ipfs.io/ipfs/Qme7ss3ARVgxv6rXqVPiikMJ8u2NLgmgszg13pYrDKEoiu";
   const MOCK_FOLLOW_NFT_URI =
     "https://ipfs.fleek.co/ipfs/ghostplantghostplantghostplantghostplantghostplantghostplan";
 
-  await profileManager.createNewProfile({
+  await profileCreator.createNewProfile({
     to: owner.address,
     handle: handle,
     imageURI: MOCK_PROFILE_URI,
