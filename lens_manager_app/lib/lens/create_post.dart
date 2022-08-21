@@ -4,41 +4,48 @@ import 'package:lens_manager/graphql/graphql_client.dart';
 import 'package:lens_manager/injection.dart';
 import 'package:lens_manager/lens/queries.dart';
 
-class ShowNFTPage extends StatelessWidget {
-  String getAllNFTs = """
-query Nfts(\$request: NFTsRequest!) {
-  nfts(request: {
-    ownerAddress: "0x54be3a794282c030b15e43ae2bb182e14c409c5e",
-    limit: 10,
-    chainIds: [1]
-  }) {
-    items {
-      contractName
-      contractAddress
-      symbol
-      tokenId
-      owners {
-        amount
-        address
-      }
-      name
-      description
-      contentURI
-      originalContent {
-        uri
-        metaType
-      }
-      chainId
-      collectionName
-      ercType
+class CreatePostPage extends StatelessWidget {
+  String createPostTypedData = """
+  mutation CreatePostTypedData {
+  createPostTypedData(request: {
+    profileId: \$profileID,
+    contentURI: \$contentURI,
+    collectModule: {
+      revertCollectModule: true
+    },
+    referenceModule: {
+      followerOnlyReferenceModule: false
     }
-    pageInfo {
-      prev
-      next
-      totalCount
+  }) {
+    id
+    expiresAt
+    typedData {
+      types {
+        PostWithSig {
+          name
+          type
+        }
+      }
+      domain {
+        name
+        chainId
+        version
+        verifyingContract
+      }
+      value {
+        nonce
+        deadline
+        profileId
+        contentURI
+        collectModule
+        collectModuleInitData
+        referenceModule
+        referenceModuleInitData
+      }
     }
   }
-}""";
+}
+""";
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +53,8 @@ query Nfts(\$request: NFTsRequest!) {
         client: ValueNotifier(getIt<DPGraphQLClient>().graphQLClient),
         child: Query(
           options: QueryOptions(
-            document:
-                gql(getAllNFTs), // this is the query string you just created
+            document: gql(
+                createPostTypedData), // this is the query string you just created
             variables: {},
             pollInterval: const Duration(seconds: 10),
           ),
