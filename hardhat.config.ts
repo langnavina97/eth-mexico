@@ -107,6 +107,7 @@ const config: HardhatUserConfig = {
         mnemonic,
         // path: "m/44'/60'/0'/0",
       },
+      gasPrice:35000000000,
       chainId: chainIds["MaticMainnet"],
       allowUnlimitedContractSize: true,
       url: "https://rpc-mainnet.maticvigil.com/",

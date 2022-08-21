@@ -1,0 +1,7 @@
+mutation GetNonceToSign($address: String!) {
+  getNonceToSign(address: $address)
+}
+
+mutation VerifySignedMessage($address: String!, $signature: String!) {
+  verifySignedMessage(address: $address, signature: $signature)
+}
