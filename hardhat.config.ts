@@ -13,7 +13,7 @@ if (!mnemonic) {
   throw new Error("Please set your MNEMONIC in a .env file");
 }
 
-const infuraApiKey = process.env.INFURA_API_KEY;
+const infuraApiKey = "random";//process.env.INFURA_API_KEY;
 const privateKey = process.env.PRIVATE_KEY;
 const forkChainId: any = process.env.FORK_CHAINID;
 
