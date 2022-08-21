@@ -5,7 +5,7 @@
 // Runtime Environment's members available in the global scope.
 import { run, ethers } from "hardhat";
 import { chainIdToAddresses } from "./networkVariables";
-import { ProfileCreator } from "../typechain-types";
+import { ProfileManager } from "../typechain-types";
 // let fs = require("fs");
 const ETHERSCAN_TX_URL = "https://testnet.bscscan.io/tx/";
 
@@ -31,31 +31,23 @@ async function main() {
 
   console.log("--------------- Contract Deployment Started ---------------");
 
-  const ProfileCreator = await ethers.getContractFactory("ProfileCreator");
-  const profileCreator = await ProfileCreator.deploy();
-  await profileCreator.deployed();
+  const ProfileManager = await ethers.getContractFactory("ProfileManager");
+  const profileManager = await ProfileManager.deploy(
+    "0xD38C32AAeE0005F3b633954E5D76c5940Dcb14DB",
+    "0x610571b323A7Cbf03F957fd551c35BB79Cff1E10"
+  );
+  await profileManager.deployed();
 
   console.log("--------------- Create New Profile ---------------");
 
-  const handle = "va5z8999008u67sze";
+  const handle = "va5z8969008u67sze";
 
-  console.log("ProfileCreator deployed to:", profileCreator.address);
+  console.log("ProfileManager deployed to:", profileManager.address);
 
   const MOCK_PROFILE_URI =
     "https://ipfs.io/ipfs/Qme7ss3ARVgxv6rXqVPiikMJ8u2NLgmgszg13pYrDKEoiu";
   const MOCK_FOLLOW_NFT_URI =
     "https://ipfs.fleek.co/ipfs/ghostplantghostplantghostplantghostplantghostplantghostplan";
-
-  await profileCreator.createNewProfile({
-    to: owner.address,
-    handle: handle,
-    imageURI: MOCK_PROFILE_URI,
-    followModule: "0x0000000000000000000000000000000000000000",
-    followModuleInitData: [],
-    followNFTURI: MOCK_FOLLOW_NFT_URI,
-  });
-
-  console.log("Handle for new profile", handle);
 
   console.log(
     "------------------------------ Deployment Storage Ended ------------------------------"

@@ -13,7 +13,7 @@ if (!mnemonic) {
   throw new Error("Please set your MNEMONIC in a .env file");
 }
 
-const infuraApiKey = "random";//process.env.INFURA_API_KEY;
+const infuraApiKey = "random"; //process.env.INFURA_API_KEY;
 const privateKey = process.env.PRIVATE_KEY;
 const forkChainId: any = process.env.FORK_CHAINID;
 
@@ -43,7 +43,7 @@ const config: HardhatUserConfig = {
       forking: {
         // eslint-disable-next-line
         enabled: true,
-        url: "https://holy-hidden-wind.matic-testnet.discover.quiknode.pro/",
+        url: "https://rpc-mainnet.maticvigil.com/",
       },
       // chainId: chainIds.hardhat,
       // allowUnlimitedContractSize: true
